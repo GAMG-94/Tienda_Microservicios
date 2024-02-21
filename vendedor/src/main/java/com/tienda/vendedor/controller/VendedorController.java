@@ -50,7 +50,7 @@ public class VendedorController {
 
     // ** Actualizar Vendedor
     @PutMapping("/{id}")
-    public ResponseEntity<VendedorDTO> actualizarVendedor(@PathVariable(value = "id") Long id, VendedorDTO vendedorDTO) {
+    public ResponseEntity<VendedorDTO> actualizarVendedor(@PathVariable(value = "id") Long id,@RequestBody VendedorDTO vendedorDTO) {
         if (vendedorDTO == null) {
             return ResponseEntity.badRequest().build();
         }
