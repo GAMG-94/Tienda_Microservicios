@@ -39,7 +39,7 @@ public class ProductosController {
 
     // ** Listar Producto Por Id
     @GetMapping("/{id}")
-    public ResponseEntity<ProductosDTO> buscarPorId (@PathVariable(value = "id") Long id){
+    public ResponseEntity<ProductosDTO> buscarPorId(@PathVariable(value = "id") Long id) {
         Productos productos = productosService.buscarPorId(id).getBody();
         return ResponseEntity.ok(mapToDTO(productos));
     }

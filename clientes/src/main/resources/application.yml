@@ -2,8 +2,6 @@ server:
   port: 8082
 
 eureka:
-  instance:
-    hostname: localhost
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
@@ -23,4 +21,16 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   config:
     import: optional:configserver:http://localhost:8081
-
+  cloud:
+    feign:
+      # Activa la configuración de Feign
+      config:
+        default:
+          # Decodifica la respuesta a JSON
+          decoder: feign.codec.JacksonDecoder
+          # Codifica la solicitud a JSON
+          encoder: feign.codec.JacksonEncoder
+          # Establece el tiempo de espera de conexión
+          connectTimeout: 5000
+          # Establece el tiempo de espera de lectura
+          readTimeout: 5000
